@@ -1,10 +1,13 @@
-from dh_alg import demonstration
+from dh_alg import demonstration as dh_demo
+from shamir_alg import demonstration as sham_demo
 
 
-message = "Супер секретное сообщение"
+message: str = "Супер секретное сообщение"
+message_int: int = 11111
 
 
-demonstration(1000, 2000, 30803, 2, message)
+dh_demo(1000, 2000, 30803, 2, message)
+sham_demo(501, 601, 30803, message_int)
 
 
 
