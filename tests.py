@@ -1,9 +1,22 @@
 import unittest
 from dh_alg import DHalg
 from shamir_alg import ShamirAlg
+import common_algorithms
 
 message = "Супер секретное сообщение"
 int_message = 1111111
+
+
+class TestCommonAlgorithms(unittest.TestCase):
+
+    def test_module_degree(self):
+        self.assertEqual(common_algorithms.module_degree(5, 11, 23), 22)
+
+    def test_module_inversion(self):
+        self.assertEqual(common_algorithms.module_inversion(3, 11), 4)
+
+    def test_evclid_extended(self):
+        self.assertEqual(common_algorithms.evclid_extended(28, 19), (1, -2, 3))
 
 
 class TestDiffieHellman(unittest.TestCase):
@@ -51,9 +64,6 @@ class TestDiffieHellman(unittest.TestCase):
         self.assertEqual(self.user_2.decrypt_message("᫟᫟᫟᫟᫟᫟᫟"),
                          str(int_message))
 
-    def tearDown(self) -> None:
-        pass
-
 
 class TestShamir(unittest.TestCase):
 
@@ -66,4 +76,4 @@ class TestShamir(unittest.TestCase):
 
 
 if __name__ == "__main__":
-  unittest.main()
+    unittest.main()

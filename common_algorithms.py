@@ -1,6 +1,6 @@
-def module_degree(a, n, m: int) -> int:
+def module_degree(basis, grade, module: int) -> int:
     # Возведение в степень по модулю
-    return (a ** n) % m
+    return (basis ** grade) % module
 
 
 def module_inversion(a, c: int) -> int:
