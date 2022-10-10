@@ -1,27 +1,19 @@
-# Реализация шифра Шамира
+# Реализация шифра Шамира, шифрует только целые числа
 from common_algorithms import module_degree, evclid_extended
 
 
-class ShamirAlg():
+class ShamirAlg:
 
     def __init__(self, c: int, p: int):
         self.c = c
         self.p = p
-        self.d = None
-
-    def find_d(self) -> int:
-        # Находим число d, необходимое для шифра
         value = evclid_extended(self.p, self.c)
-        value = value[2] if value[2] > 0 else value[2] + self.p
-        self.d = value
-        return value
+        self.d = value[2] if value[2] > 0 else value[2] + self.p
 
 
 def demonstration(c_a: int, c_b: int, p: int, message: int):
     user_1 = ShamirAlg(c_a, p-1)
     user_2 = ShamirAlg(c_b, p-1)
-    user_1.find_d()
-    user_2.find_d()
     x1 = module_degree(message, c_a, p)
     x2 = module_degree(x1, c_b, p)
     x3 = module_degree(x2, user_1.d, p)
