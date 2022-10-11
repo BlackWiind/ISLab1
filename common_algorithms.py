@@ -1,9 +1,9 @@
-def module_degree(basis, grade, module: int, optional=1) -> int:
+def module_degree(basis: int, grade: int, module: int, optional=1) -> int:
     # Возведение в степень по модулю
     return (optional * basis ** grade) % module
 
 
-def module_inversion(a, c: int) -> int:
+def module_inversion(a: int, c: int) -> int:
     # Обратная инверсия по модулю
     for i in range(c):
         if (a * i) % c == 1:
@@ -12,7 +12,7 @@ def module_inversion(a, c: int) -> int:
         return answer
 
 
-def evclid_extended(num1, num2: int) -> int:
+def evclid_extended(num1: int, num2: int) -> int:
     # Обобщенный алгоритм Евклида
     if num1 == 0:
         return (num2, 0, 1)

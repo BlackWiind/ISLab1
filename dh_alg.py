@@ -18,7 +18,7 @@ class DHalg:
         self.full_key = full_key
         return full_key
 
-    def encrypt_message(self, message) -> str:
+    def encrypt_message(self, message: any) -> str:
         # Шифровка сообщения
         encrypted_message = ""
         message = str(message)
@@ -27,7 +27,7 @@ class DHalg:
             encrypted_message += chr(ord(c) + key)
         return encrypted_message
 
-    def decrypt_message(self, encrypted_message) -> str:
+    def decrypt_message(self, encrypted_message: any) -> str:
         # Расшифровка сообщения
         encrypted_message = str(encrypted_message)
         decrypted_message = ""

@@ -4,7 +4,7 @@ from common_algorithms import module_degree, evclid_extended
 
 class RSAAlg:
 
-    def __init__(self, p, q, d: int):
+    def __init__(self, p: int, q: int, d: int):
         self.n = p * q
         self.d = d
         self.fi = (p - 1) * (q - 1)
@@ -21,7 +21,7 @@ class RSAAlg:
         return module_degree(encrypted_message, self.private_key, self.n)
 
 
-def demonstration(p, q, d, message: int):
+def demonstration(p: int, q: int, d: int, message: int):
     user = RSAAlg(p, q, d)
     encrypted_message = user.encrypt_message(user.open_key, message)
     decrypted_message = user.decrypt_message(encrypted_message)
